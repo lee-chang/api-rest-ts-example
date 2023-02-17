@@ -19,6 +19,10 @@ const UserSchema = new Schema<User>(
     description: {
       type: String,
       default: "",
+    },
+    rol: {
+      type: String,
+      default: "customer",
     }
   },
   {

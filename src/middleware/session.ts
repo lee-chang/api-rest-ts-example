@@ -7,7 +7,7 @@ const checkJwt = async (req: RequestExt, res: Response, next: NextFunction) => {
     const jwtByUser = req.headers.authorization || null;
     const jwt = jwtByUser?.split(" ").pop(); // token by user from headers
 
-    const isOk = (await verifyToken(`${jwt}`)) as { id: string }; // -> verifica y retorna el payload (data del token) | "as {}" define el tipado de is Ok, este contiene lo que ira en el token
+    const isOk = (await verifyToken(`${jwt}`)) as { id: string, rol: string }; // -> verifica y retorna el payload (data del token) | "as {}" define el tipado de is Ok, este contiene lo que ira en el token
 
     if (!isOk) {
       res.status(401);
