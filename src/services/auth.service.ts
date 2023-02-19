@@ -6,7 +6,7 @@ import { generateToken } from "../utils/jwt.handle";
 
 const registerNewUser = async ({ email, password, name, rol }: User) => {
   const checkIs = await UserModel.findOne({ email });
-  if (checkIs) return "User already exists";
+  if (checkIs) return "USER_ALREADY_EXISTS";
 
   const passEncrypted = await encrypt(password);
   const registerNewUser = await UserModel.create({

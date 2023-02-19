@@ -5,7 +5,7 @@ import { loginController, registerController } from '../controllers/auth.control
 const router = Router()
 
 /**
- * * http://localhost:PORT/auth/[...]
+ * * http://localhost:PORT/api/auth/[...]
  */
 
 router.post("/register", registerController)

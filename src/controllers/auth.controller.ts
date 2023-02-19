@@ -15,7 +15,10 @@ const loginController = async (req: Request, res: Response) => {
 const registerController = async (req: Request, res: Response) => {
   try {
     const response = await registerNewUser(req.body);
-    res.send(response);
+    if ( response === 'USER_ALREADY_EXISTS' ) {
+      return res.status(404).send(response);
+    } 
+    return res.send(response).status(200);
   }catch(err) {
     console.log(err);
   }

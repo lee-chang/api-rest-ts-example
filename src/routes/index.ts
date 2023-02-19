@@ -13,8 +13,8 @@ readdirSync(PATH_ROUTER).forEach((file) => {
   const cleanName = cleanFileName(file);
   if (cleanName !== "index") {
     import(`./${cleanName}`).then((module) => {
-      console.log(`Se cargo la ruta ./${cleanName}`);
-      router.use(`/${cleanName}`, module.router);
+      console.log(`Se cargo la ruta /api/${cleanName}`);
+      router.use(`/api/${cleanName}`, module.router);
     });
   }
 });
